@@ -18,11 +18,12 @@
 <body class="bg-slate-950 text-slate-100 antialiased selection:bg-indigo-500 selection:text-white">
 
   <!-- Navigation Bar -->
-  <nav class="fixed top-0 left-0 w-full bg-slate-950/85 backdrop-blur-md z-50 border-b border-slate-800">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+  <nav class="fixed top-0 left-0 w-full bg-slate-950/90 backdrop-blur-md z-50 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
       <a href="#" class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-lg shadow-indigo-500/30">
-          <i class="fa-solid fa-bolt text-lg"></i>
+        <!-- Logo in Navbar -->
+        <div class="w-11 h-11 rounded-full bg-white p-1 shadow-md shadow-indigo-500/20 border border-amber-300/40 flex items-center justify-center overflow-hidden">
+          <img src="logo.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=100&h=100&q=80';" alt="Digital Pulse Logo" class="w-full h-full object-contain">
         </div>
         <span class="text-xl font-bold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent heading-font">Digital Pulse</span>
       </a>
@@ -45,39 +46,55 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="relative pt-36 pb-20 px-6 overflow-hidden">
-    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-gradient-to-tr from-indigo-600/30 to-purple-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+  <!-- Hero Section with Futuristic Cover Background & Hero Logo -->
+  <section class="relative pt-36 pb-28 px-6 overflow-hidden min-h-[90vh] flex items-center justify-center">
+    
+    <!-- Cover Background Image with Gradient Overlays -->
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=85" alt="Digital Pulse AI Network Cover" class="w-full h-full object-cover object-center opacity-30">
+      <div class="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/90 to-slate-950"></div>
+      <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-indigo-600/20 rounded-full blur-[140px] pointer-events-none"></div>
+    </div>
 
     <div class="max-w-5xl mx-auto text-center relative z-10">
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-400 text-sm font-semibold uppercase tracking-wider mb-6">
-        <span class="w-2 h-2 rounded-full bg-indigo-400 animate-ping"></span>
-        এআই অটোমেশন ও স্মার্ট ডিজিটাল সলিউশন
+      
+      <!-- Central Branding Logo Badge -->
+      <div class="inline-flex flex-col items-center justify-center mb-8">
+        <div class="relative group">
+          <div class="absolute -inset-2 rounded-full bg-gradient-to-r from-amber-400 via-pink-500 to-indigo-500 opacity-60 blur-md group-hover:opacity-100 transition duration-500"></div>
+          <div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-white p-2 shadow-2xl border-2 border-amber-400/80 flex items-center justify-center">
+            <img src="logo.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=300&h=300&q=80';" alt="Digital Pulse Logo" class="w-full h-full object-contain">
+          </div>
+        </div>
+        <div class="mt-4 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-indigo-500/40 bg-indigo-950/60 backdrop-blur-md text-indigo-300 text-xs sm:text-sm font-semibold uppercase tracking-wider shadow-inner">
+          <span class="w-2 h-2 rounded-full bg-indigo-400 animate-ping"></span>
+          স্মার্ট এআই অটোমেশন ও টেকনোলজি পার্টনার
+        </div>
       </div>
       
-      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-snug md:leading-tight text-white mb-6">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight sm:leading-snug md:leading-tight text-white mb-6">
         আপনার ব্যবসাকে রূপান্তর করুন <br class="hidden sm:inline">
-        <span class="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Digital Pulse স্মার্ট প্রযুক্তির সাথে</span>
+        <span class="bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400 bg-clip-text text-transparent">Digital Pulse স্মার্ট প্রযুক্তির সাথে</span>
       </h1>
 
       <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed font-normal">
-        আমরা আপনার বিজনেসের ম্যানুয়াল কাজ কমিয়ে সম্পূর্ণ অটোমেটেড সিস্টেম এবং স্মার্ট এআই সলিউশন তৈরি করি, যার মাধ্যমে আপনার সেলস ও বিজনেস দ্রুত গ্রো করবে।
+        আমরা আপনার বিজনেসের ম্যানুয়াল কাজ কমিয়ে সম্পূর্ণ অটোমেটেড সিস্টেম এবং আধুনিক এআই সলিউশন তৈরি করি, যার মাধ্যমে আপনার সেলস ও বিজনেস দ্রুত গ্রো করবে।
       </p>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-        <a href="https://digital-pulse-app-seven.vercel.app/" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg shadow-indigo-600/30 transition flex items-center justify-center gap-2">
+        <a href="https://digital-pulse-app-seven.vercel.app/" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold bg-indigo-600 hover:bg-indigo-500 text-white shadow-xl shadow-indigo-600/30 transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
           <i class="fa-solid fa-rocket"></i>
           <span>ডিজিটাল পালস অ্যাপ ওপেন করুন</span>
         </a>
-        <a href="https://wa.me/8801568477991?text=হ্যালো%20Digital%20Pulse,%20আমি%20আপনাদের%20সার্ভিস%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl font-semibold border border-slate-700 bg-slate-900/60 hover:bg-slate-800 text-slate-200 transition flex items-center justify-center gap-2">
+        <a href="https://wa.me/8801568477991?text=হ্যালো%20Digital%20Pulse,%20আমি%20আপনাদের%20সার্ভিস%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl font-semibold border border-slate-700 bg-slate-900/80 hover:bg-slate-800 text-slate-200 backdrop-blur-md transition flex items-center justify-center gap-2">
           <i class="fa-brands fa-whatsapp text-emerald-400 text-xl"></i>
           <span>হোয়াটসঅ্যাপে মেসেজ দিন</span>
         </a>
       </div>
 
-      <!-- Hero Visual Preview / Image Mockup -->
-      <div class="relative mx-auto max-w-4xl rounded-2xl border border-slate-800 bg-slate-900/50 p-2 shadow-2xl backdrop-blur-sm">
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Digital Pulse Dashboard" class="w-full rounded-xl object-cover border border-slate-800/80 max-h-[460px]">
+      <!-- Feature Interactive Dashboard Preview Card -->
+      <div class="relative mx-auto max-w-4xl rounded-2xl border border-slate-800 bg-slate-900/60 p-2 sm:p-3 shadow-2xl backdrop-blur-md">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Digital Pulse Dashboard Preview" class="w-full rounded-xl object-cover border border-slate-800/80 max-h-[460px]">
       </div>
     </div>
   </section>
@@ -85,50 +102,54 @@
   <!-- About / Founder Section -->
   <section id="about" class="py-24 px-6 border-t border-slate-900 bg-slate-900/40">
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-      <div class="space-y-6">
-        <span class="text-indigo-400 font-semibold text-sm tracking-wider uppercase">প্রতিষ্ঠাতার কথা</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">রাজিয়া সুলতানা</h2>
-        <p class="text-indigo-300 font-medium text-lg">ফাউন্ডার ও অটোমেশন লিড, ডিজিটাল পালস</p>
-        <p class="text-slate-300 leading-relaxed text-base">
-          ডিজিটাল পালস গড়ে উঠেছে ক্ষুদ্র ও মাঝারি ব্যবসায়ী এবং উদ্যোক্তাদের ডিজিটাল রূপান্তরকে সহজ ও গতিশীল করার লক্ষ্য নিয়ে। প্রতিদিনের সময়সাপেক্ষ কাজগুলোকে আধুনিক এআই ও অটোমেশনের আওতায় এনে দক্ষ বিজনেস মডেল তৈরি করাই আমাদের প্রধান উদ্দেশ্য।
-        </p>
-        <div class="flex items-center gap-4 pt-3">
-          <a href="https://www.facebook.com/digitalpulse.media.bd/" target="_blank" class="w-11 h-11 rounded-lg bg-slate-800 border border-slate-700 hover:border-indigo-500 flex items-center justify-center text-slate-300 hover:text-white transition" title="ফেসবুক পেজ">
-            <i class="fa-brands fa-facebook-f text-lg"></i>
-          </a>
-          <a href="mailto:mastermindai.25@gmail.com" class="w-11 h-11 rounded-lg bg-slate-800 border border-slate-700 hover:border-indigo-500 flex items-center justify-center text-slate-300 hover:text-white transition" title="ইমেইল">
-            <i class="fa-solid fa-envelope text-lg"></i>
-          </a>
-          <a href="https://wa.me/8801568477991" target="_blank" class="w-11 h-11 rounded-lg bg-slate-800 border border-slate-700 hover:border-emerald-500 flex items-center justify-center text-slate-300 hover:text-emerald-400 transition" title="হোয়াটসঅ্যাপ">
-            <i class="fa-brands fa-whatsapp text-lg"></i>
-          </a>
+      
+      <!-- Profile Column -->
+      <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+        <div class="relative group">
+          <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 opacity-70 blur group-hover:opacity-100 transition duration-300"></div>
+          <img src="profile.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&h=450&q=80';" alt="Razia Sultana" class="relative w-44 h-52 sm:w-48 sm:h-56 rounded-2xl object-cover border-2 border-indigo-400/30 shadow-2xl">
+        </div>
+
+        <div class="space-y-4 text-center sm:text-left">
+          <span class="text-indigo-400 font-semibold text-xs tracking-wider uppercase">প্রতিষ্ঠাতার পরিচয়</span>
+          <h2 class="text-3xl font-bold text-white tracking-tight">রাজিয়া সুলতানা</h2>
+          <p class="text-indigo-300 font-medium text-sm">ফাউন্ডার ও অটোমেশন স্পেশালিস্ট, ডিজিটাল পালস</p>
+          <div class="flex items-center justify-center sm:justify-start gap-3 pt-2">
+            <a href="https://www.facebook.com/digitalpulse.media.bd/" target="_blank" class="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 hover:border-indigo-500 flex items-center justify-center text-slate-300 hover:text-white transition" title="ফেসবুক পেজ">
+              <i class="fa-brands fa-facebook-f text-sm"></i>
+            </a>
+            <a href="mailto:mastermindai.25@gmail.com" class="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 hover:border-indigo-500 flex items-center justify-center text-slate-300 hover:text-white transition" title="ইমেইল">
+              <i class="fa-solid fa-envelope text-sm"></i>
+            </a>
+            <a href="https://wa.me/8801568477991" target="_blank" class="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 hover:border-emerald-500 flex items-center justify-center text-slate-300 hover:text-emerald-400 transition" title="হোয়াটসঅ্যাপ">
+              <i class="fa-brands fa-whatsapp text-sm"></i>
+            </a>
+          </div>
         </div>
       </div>
       
+      <!-- Mission Column -->
       <div class="p-8 rounded-2xl bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 shadow-2xl space-y-6">
-        <div class="flex items-center gap-4 border-b border-slate-800 pb-5">
-          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&h=200&q=80" alt="Founder Portrait" class="w-16 h-16 rounded-full object-cover border-2 border-indigo-500/50">
-          <div>
-            <h3 class="text-xl font-bold text-white">আমাদের মিশন</h3>
-            <p class="text-xs text-slate-400">ফিউচার-রেডি বিজনেস আর্কিটেকচার</p>
-          </div>
-        </div>
-
+        <h3 class="text-xl font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-bullseye text-indigo-400"></i>
+          আমাদের রূপকল্প ও লক্ষ্য
+        </h3>
         <p class="text-slate-300 text-sm leading-relaxed">
-          মার্কেটিং, লিড ক্যাপচার, কাস্টমার মেসেজিং এবং পেমেন্ট ট্র্যাকিং—সবকিছু একটিমাত্র অটোমেটেড সিস্টেমের অধীনে পরিচালনা করার নির্ভরযোগ্য প্ল্যাটফর্ম।
+          ডিজিটাল পালস গড়ে উঠেছে ক্ষুদ্র ও মাঝারি ব্যবসায়ী এবং উদ্যোক্তাদের ডিজিটাল রূপান্তরকে সহজ ও গতিশীল করার লক্ষ্য নিয়ে। প্রতিদিনের সময়সাপেক্ষ কাজগুলোকে আধুনিক এআই ও অটোমেশনের আওতায় এনে দক্ষ বিজনেস মডেল তৈরি করাই আমাদের প্রধান উদ্দেশ্য।
         </p>
 
         <div class="grid grid-cols-2 gap-4 pt-2">
           <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 text-center">
             <h4 class="text-3xl font-bold text-indigo-400 heading-font">১০০%</h4>
-            <p class="text-sm text-slate-400 mt-1">স্মার্ট অটোমেশন</p>
+            <p class="text-xs text-slate-400 mt-1">স্মার্ট অটোমেশন</p>
           </div>
           <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 text-center">
             <h4 class="text-3xl font-bold text-emerald-400 heading-font">২৪/৭</h4>
-            <p class="text-sm text-slate-400 mt-1">কাস্টমার এনগেজমেন্ট</p>
+            <p class="text-xs text-slate-400 mt-1">কাস্টমার এনগেজমেন্ট</p>
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -141,7 +162,6 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Service 1 -->
         <div class="p-8 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-indigo-500/50 transition">
           <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl mb-6">
             <i class="fa-solid fa-gears"></i>
@@ -152,7 +172,6 @@
           </p>
         </div>
 
-        <!-- Service 2 -->
         <div class="p-8 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-purple-500/50 transition">
           <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl mb-6">
             <i class="fa-solid fa-laptop-code"></i>
@@ -163,7 +182,6 @@
           </p>
         </div>
 
-        <!-- Service 3 -->
         <div class="p-8 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-pink-500/50 transition">
           <div class="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center text-xl mb-6">
             <i class="fa-solid fa-bullhorn"></i>
