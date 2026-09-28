@@ -30,6 +30,10 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Hind Siliguri', 'Plus Jakarta Sans', sans-serif;
       background-color: var(--dark-bg);
@@ -83,7 +87,6 @@
       color: #fff;
     }
 
-    /* পিএনজি লোগো ফ্রেম ও উজ্জ্বল গোল্ডেন শ্যাডো */
     .brand-logo .logo-frame {
       width: 52px;
       height: 52px;
@@ -115,7 +118,7 @@
 
     .nav-links {
       display: flex;
-      gap: 24px;
+      gap: 22px;
       list-style: none;
     }
 
@@ -142,45 +145,90 @@
       box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
     }
 
-    .hero {
-      padding: 80px 0 50px;
+    /* স্মার্ট অফিস কভার ব্যানার সেকশন */
+    .hero-banner-wrapper {
+      margin-top: 24px;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      height: 280px;
+      background: #0f172a;
+    }
+
+    .hero-banner-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: brightness(0.65) contrast(1.1);
+    }
+
+    .banner-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(7, 10, 18, 0.2) 0%, rgba(7, 10, 18, 0.85) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding-bottom: 25px;
       text-align: center;
     }
 
-    .badge {
+    .banner-tag {
+      background: rgba(6, 182, 212, 0.25);
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      color: #38bdf8;
+      padding: 6px 18px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 14.5px;
+      margin-bottom: 10px;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 7px 18px;
-      border-radius: 50px;
-      background: rgba(79, 70, 229, 0.28);
-      border: 1px solid rgba(129, 140, 248, 0.45);
-      color: #c7d2fe;
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 24px;
     }
 
-    .hero h1 {
+    /* হিরো টেক্সট */
+    .hero-content {
+      padding: 40px 0 30px;
+      text-align: center;
+    }
+
+    .hero-content h1 {
       font-size: clamp(34px, 5.2vw, 54px);
       font-weight: 800;
       line-height: 1.3;
-      margin-bottom: 22px;
+      margin-bottom: 16px;
       color: #ffffff;
     }
 
-    .hero h1 span {
+    .hero-content h1 span {
       background: linear-gradient(135deg, #a5b4fc, #38bdf8);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .hero p {
-      font-size: 19px;
+    .hero-highlight-sub {
+      font-size: 22px;
+      font-weight: 800;
+      color: #38bdf8;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+      text-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+    }
+
+    .hero-content p {
+      font-size: 18.5px;
       color: #ffffff;
       font-weight: 600;
       max-width: 740px;
-      margin: 0 auto 38px;
+      margin: 0 auto 34px;
       text-shadow: 0 1px 4px rgba(0,0,0,0.6);
     }
 
@@ -228,7 +276,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 16px;
-      margin: 50px 0;
+      margin: 40px 0 60px;
     }
 
     .channel-box {
@@ -337,6 +385,7 @@
       font-weight: 600;
     }
 
+    /* পরিচালনা ও ফাউন্ডার সেকশন */
     .lead-section {
       background: rgba(255, 255, 255, 0.07);
       border: 1px solid var(--card-border);
@@ -413,6 +462,7 @@
       color: #38bdf8;
     }
 
+    /* পোর্টফোলিও */
     .filter-buttons {
       display: flex;
       justify-content: center;
@@ -489,6 +539,7 @@
       font-weight: 600;
     }
 
+    /* ফর্ম সেকশন */
     .contact-wrapper {
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid var(--card-border);
@@ -597,6 +648,7 @@
 
     @media (max-width: 768px) {
       .nav-links { display: none; }
+      .hero-banner-wrapper { height: 200px; }
       .lead-section {
         grid-template-columns: 1fr;
         text-align: center;
@@ -611,10 +663,10 @@
 
   <div class="glow-bg"></div>
 
-  <!-- হেডার (PNG লোগো সেট) -->
+  <!-- হেডার (হোম লিংকসহ সম্পূর্ণ ন্যাভিগেশন) -->
   <header>
     <div class="container nav-bar">
-      <a href="#" class="brand-logo">
+      <a href="#home" class="brand-logo">
         <div class="logo-frame">
           <img src="logo.png" onerror="this.onerror=null; this.src='logo.jpg'; this.onerror=function(){this.src='digital pulse logo.jpg';};" alt="Digital Pulse Logo">
         </div>
@@ -622,10 +674,11 @@
       </a>
 
       <ul class="nav-links">
+        <li><a href="#home"><i class="fa-solid fa-house"></i> হোম</a></li>
         <li><a href="#services">সার্ভিসসমূহ</a></li>
-        <li><a href="#lead">পরিচালনা ও নেতৃত্ব</a></li>
+        <li><a href="#lead">ফাউন্ডার ও নেতৃত্ব</a></li>
         <li><a href="#portfolio">কাজের শোকেস</a></li>
-        <li><a href="#contact">যোগাযোগ</a></li>
+        <li><a href="#contact">যোগাযোগ ও ফর্ম</a></li>
       </ul>
 
       <a href="https://digital-pulse-app-seven.vercel.app/" target="_blank" class="btn-header">
@@ -634,21 +687,36 @@
     </div>
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <div class="badge">
-        <i class="fa-solid fa-sparkles"></i> ডিজিটাল সোশ্যাল মিডিয়া মার্কেটিং ও স্মার্ট অটোমেশন
+  <main class="container" id="home">
+
+    <!-- স্মার্ট টেক অফিস কভার ব্যানার (মেনুবারের ঠিক নিচে) -->
+    <div class="hero-banner-wrapper">
+      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80" alt="Digital Pulse Smart Office" class="hero-banner-img">
+      <div class="banner-overlay">
+        <div class="banner-tag">
+          <i class="fa-solid fa-laptop-code"></i> আধুনিক অফিস টিম ও স্মার্ট অটোমেশন ল্যাব
+        </div>
       </div>
+    </div>
+
+    <!-- হিরো কনটেন্ট (স্পষ্ট ও আকর্ষণীয়) -->
+    <section class="hero-content">
       <h1>
         আপনার ব্র্যান্ডকে নিয়ে যান নতুন উচ্চতায় <br>
         <span>Digital Pulse মিডিয়া সলিউশন দিয়ে</span>
       </h1>
+      
+      <div class="hero-highlight-sub">
+        ডিজিটাল সোশ্যাল মিডিয়া মার্কেটিং ও স্মার্ট অটোমেশন
+      </div>
+
       <p>
         প্রফেশনাল মেটা ও ফেসবুক পেইজ পরিচালনা, ভাইরাল রিলস ও আকর্ষণীয় ব্যানার ডিজাইন, ইনস্ট্যান্ট কমেন্ট ফিল্টার এবং স্বয়ংক্রিয় কাস্টমার ডেটাবেজ ম্যানেজমেন্ট।
       </p>
+
       <div class="hero-actions">
-        <a href="https://digital-pulse-app-seven.vercel.app/" target="_blank" class="btn-primary">
-          <i class="fa-solid fa-rocket"></i> ডিজিটাল পালস অ্যাপ
+        <a href="#contact" class="btn-primary">
+          <i class="fa-solid fa-paper-plane"></i> প্রজেক্ট শুরু করুন
         </a>
         <a href="https://www.facebook.com/digitalpulse.media.bd/" target="_blank" class="btn-secondary">
           <i class="fa-brands fa-facebook"></i> অফিসিয়াল ফেসবুক পেইজ
@@ -722,7 +790,7 @@
       </div>
     </section>
 
-    <!-- পরিচালনা ও প্রফেশনাল লিডারশিপ -->
+    <!-- পরিচালনা ও ফাউন্ডার সেকশন -->
     <section id="lead">
       <div class="lead-section">
         <div class="avatar-wrapper">
@@ -746,7 +814,7 @@
 
         <div class="lead-content">
           <h3>অভিজ্ঞ নেতৃত্ব ও সুদৃঢ় পেশাদারিত্ব</h3>
-          <div class="lead-tagline">সিনিয়র ডেটা ম্যানেজমেন্ট ও সোশ্যাল মিডিয়া অটোমেশন লিড</div>
+          <div class="lead-tagline">ফাউন্ডার | সিনিয়র ডেটা ম্যানেজমেন্ট ও সোশ্যাল মিডিয়া অটোমেশন লিড</div>
           <p class="lead-desc">
             একটি আন্তর্জাতিক স্বাস্থ্য গবেষণা সংস্থায় দীর্ঘ ২৬ বছরের বাস্তব ডেটা ম্যানেজমেন্ট, নিখুঁত কোয়ালিটি কন্ট্রোল এবং ডাটাবেজ পরিচালনার সমৃদ্ধ অভিজ্ঞতা রয়েছে। সেই সুদৃঢ় পেশাগত নিষ্ঠা, বিশ্বস্ততা ও কার্যক্ষমতাকে যুক্ত করে <strong>Digital Pulse</strong> প্ল্যাটফর্মের মাধ্যমে আমরা উচ্চমানের মেটা সোশ্যাল মিডিয়া মার্কেটিং, কনটেন্ট ক্রিয়েশন ও বিজনেস অটোমেশন সার্ভিস নিশ্চিত করছি।
           </p>
@@ -777,15 +845,15 @@
       <div id="portfolio-container" class="portfolio-grid"></div>
     </section>
 
-    <!-- কন্ট্যাক্ট ফর্ম -->
+    <!-- কন্ট্যাক্ট ও ফর্ম সেকশন -->
     <section id="contact">
       <div class="contact-wrapper">
         <h2>প্রজেক্ট বা ক্যাম্পেইন শুরু করুন</h2>
-        <p>আপনার প্রয়োজন জানিয়ে মেসেজ দিন, দ্রুত সমাধান দেওয়া হবে</p>
+        <p>আপনার প্রয়োজন জানিয়ে ফর্মটি পূরণ করুন, দ্রুত সমাধান দেওয়া হবে</p>
 
         <form class="contact-form" onsubmit="handleFormSubmit(event)">
           <div class="form-group">
-            <input type="text" id="custName" placeholder="আপনার নাম / পেইজের নাম" required>
+            <input type="text" id="custName" placeholder="আপনার নাম / পেজের নাম" required>
           </div>
           <div class="form-group">
             <input type="tel" id="custPhone" placeholder="মোবাইল বা হোয়াটসঅ্যাপ নম্বর" required>
@@ -825,10 +893,11 @@
       <div class="footer-col">
         <h5>চ্যানেল লিংকসমূহ</h5>
         <ul>
+          <li><a href="#home">হোম ল্যান্ডিং পেইজ</a></li>
           <li><a href="https://www.facebook.com/digitalpulse.media.bd/" target="_blank">ফেসবুক পেইজ</a></li>
           <li><a href="https://digital-pulse-app-seven.vercel.app/" target="_blank">ডিজিটাল পালস ক্লাউড অ্যাপ</a></li>
           <li><a href="#services">টেক সার্ভিস</a></li>
-          <li><a href="#lead">পরিচালনা ও নেতৃত্ব</a></li>
+          <li><a href="#lead">ফাউন্ডার পরিচিতি</a></li>
         </ul>
       </div>
       <div class="footer-col">
