@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Digital Pulse | ডিজিটাল সোশ্যাল মিডিয়া মার্কেটিং ও স্মার্ট অটোমেশন</title>
   
-  <!-- গুগল ফন্টস -->
+  <!-- ফন্টস -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -71,7 +71,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 14px 0;
+      padding: 12px 0;
     }
 
     .brand-logo {
@@ -82,24 +82,25 @@
       color: #fff;
     }
 
-    .brand-logo .logo-img-wrapper {
-      width: 46px;
-      height: 46px;
+    /* লোগোর নিখুঁত গোল্ডেন সার্কেল ফ্রেম ও পিএনজি স্টাইল */
+    .brand-logo .logo-frame {
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       background: #ffffff;
-      padding: 2px;
+      padding: 1.5px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 16px rgba(234, 179, 8, 0.35);
-      border: 1.5px solid rgba(234, 179, 8, 0.6);
+      box-shadow: 0 0 16px rgba(234, 179, 8, 0.4);
+      border: 2px solid #eab308;
       overflow: hidden;
     }
 
-    .brand-logo .logo-img {
+    .brand-logo .logo-frame img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
       border-radius: 50%;
     }
 
@@ -306,7 +307,7 @@
       font-size: 14px;
     }
 
-    /* শালীন হিজাব ও বোরকা অ্যাভাটার সেকশন */
+    /* মার্জিত হিজাব-বোরকা অ্যাভাটার সেকশন */
     .lead-section {
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
       border: 1px solid var(--card-border);
@@ -549,12 +550,12 @@
 
   <div class="glow-bg"></div>
 
-  <!-- হেডার -->
+  <!-- হেডার (লোগো অটো-ফলব্যাক সেট) -->
   <header>
     <div class="container nav-bar">
       <a href="#" class="brand-logo">
-        <div class="logo-img-wrapper">
-          <img src="logo.png" alt="Digital Pulse Logo" class="logo-img">
+        <div class="logo-frame">
+          <img src="logo.png" onerror="this.onerror=null; this.src='logo.jpg'; this.onerror=function(){this.src='digital pulse logo.jpg';};" alt="Digital Pulse Logo">
         </div>
         <span>Digital Pulse</span>
       </a>
@@ -573,7 +574,6 @@
   </header>
 
   <main class="container">
-    <!-- হিরো সেকশন -->
     <section class="hero">
       <div class="badge">
         <i class="fa-solid fa-sparkles"></i> ডিজিটাল সোশ্যাল মিডিয়া মার্কেটিং ও স্মার্ট অটোমেশন
@@ -583,14 +583,14 @@
         <span>Digital Pulse মিডিয়া সলিউশন দিয়ে</span>
       </h1>
       <p>
-        প্রফেশনাল মেটা ও ফেসবুক পেইজ পরিচালনা, ভাইরাল রিলস ও আকর্ষণীয় ব্যানার ডিজাইন, ইনস্ট্যান্ট কমেন্ট ফিল্টার এবং স্বয়ংক্রিয় কাস্টমার ডেটাবেজ ম্যানেজমেন্ট।
+        প্রফেশনাল মেটা ও ফেসবুক পেজ পরিচালনা, ভাইরাল রিলস ও আকর্ষণীয় ব্যানার ডিজাইন, ইনস্ট্যান্ট কমেন্ট ফিল্টার এবং স্বয়ংক্রিয় কাস্টমার ডেটাবেজ ম্যানেজমেন্ট।
       </p>
       <div class="hero-actions">
         <a href="https://digital-pulse-app-seven.vercel.app/" target="_blank" class="btn-primary">
           <i class="fa-solid fa-rocket"></i> ডিজিটাল পালস অ্যাপ
         </a>
         <a href="https://www.facebook.com/digitalpulse.media.bd/" target="_blank" class="btn-secondary">
-          <i class="fa-brands fa-facebook"></i> অফিসিয়াল ফেসবুক পেইজ
+          <i class="fa-brands fa-facebook"></i> অফিসিয়াল ফেসবুক পেজ
         </a>
         <a href="https://wa.me/8801568477991?text=হ্যালো%20Digital%20Pulse,%20আমি%20সার্ভিস%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="btn-secondary">
           <i class="fa-brands fa-whatsapp"></i> হোয়াটসঅ্যাপ চ্যাট
@@ -603,7 +603,7 @@
       <a href="https://www.facebook.com/digitalpulse.media.bd/" target="_blank" class="channel-box">
         <div class="channel-icon"><i class="fa-brands fa-facebook-f"></i></div>
         <div class="channel-info">
-          <h4>ফেসবুক পেইজ</h4>
+          <h4>ফেসবুক পেজ</h4>
           <p>digitalpulse.media.bd</p>
         </div>
       </a>
@@ -630,7 +630,7 @@
       </a>
     </div>
 
-    <!-- সার্ভিস সেকশন (সম্পূর্ণ সোশ্যাল মিডিয়া ও লিড ফোকাসড) -->
+    <!-- সার্ভিস সেকশন -->
     <section id="services">
       <div class="section-title">
         <span style="color: var(--secondary); font-weight: 600; text-transform: uppercase;">আমাদের সেবাসমূহ</span>
@@ -640,7 +640,7 @@
       <div class="services-grid">
         <div class="service-card">
           <div class="service-icon"><i class="fa-solid fa-bullhorn"></i></div>
-          <h3>মেটা পেইজ ও পেইড ক্যাম্পেইন</h3>
+          <h3>মেটা পেজ ও পেইড ক্যাম্পেইন</h3>
           <p>টার্গেটেড সোশ্যাল অডিয়েন্স রিসার্চ, মেটা বিজনেস স্যুট দিয়ে বিজ্ঞাপন এবং সেলস ফানেল অপ্টিমাইজেশন।</p>
         </div>
         <div class="service-card">
@@ -731,7 +731,7 @@
           </div>
           <div class="form-group">
             <select id="custService">
-              <option value="সোশ্যাল মিডিয়া পেজ ও ক্যাম্পেইন">সোশ্যাল মিডিয়া পেইজ ও ক্যাম্পেইন</option>
+              <option value="সোশ্যাল মিডিয়া পেজ ও ক্যাম্পেইন">সোশ্যাল মিডিয়া পেজ ও ক্যাম্পেইন</option>
               <option value="রিলস ও ভিডিও কনটেন্ট">রিলস ও ভিডিও কনটেন্ট মেকিং</option>
               <option value="ব্যানার, ফ্লায়ার ও ব্র্যান্ডিং">ব্যানার, ফ্লায়ার ও ব্র্যান্ডিং</option>
               <option value="কমেন্ট অটোমেশন ও ডেটা লিড">কমেন্ট অটোমেশন ও ডেটা লিড সিস্টেম</option>
@@ -752,8 +752,8 @@
     <div class="container footer-grid">
       <div class="footer-col">
         <div class="brand-logo" style="margin-bottom: 12px;">
-          <div class="logo-img-wrapper" style="width: 36px; height: 36px;">
-            <img src="logo.png" alt="Digital Pulse Logo" class="logo-img">
+          <div class="logo-frame" style="width: 38px; height: 38px;">
+            <img src="logo.png" onerror="this.onerror=null; this.src='logo.jpg'; this.onerror=function(){this.src='digital pulse logo.jpg';};" alt="Digital Pulse Logo">
           </div>
           <span style="font-size: 18px;">Digital Pulse</span>
         </div>
@@ -764,7 +764,7 @@
       <div class="footer-col">
         <h5>চ্যানেল লিংকসমূহ</h5>
         <ul>
-          <li><a href="https://www.facebook.com/digitalpulse.media.bd/" target="_blank">ফেসবুক পেইজ</a></li>
+          <li><a href="https://www.facebook.com/digitalpulse.media.bd/" target="_blank">ফেসবুক পেজ</a></li>
           <li><a href="https://digital-pulse-app-seven.vercel.app/" target="_blank">ডিজিটাল পালস ক্লাউড অ্যাপ</a></li>
           <li><a href="#services">টেক সার্ভিস</a></li>
           <li><a href="#lead">পরিচালনা ও নেতৃত্ব</a></li>
@@ -787,7 +787,7 @@
   <script>
     const workItems = [
       {
-        title: "টার্গেটেড মেটা পেইজ ও ক্যাম্পেইন",
+        title: "টার্গেটেড মেটা পেজ ও ক্যাম্পেইন",
         category: "social",
         categoryName: "সোশ্যাল মার্কেটিং",
         desc: "হাই-কনভার্টিং অডিয়েন্স রিসার্চ এবং মেটা অ্যাড অপ্টিমাইজেশন।",
@@ -804,7 +804,7 @@
         title: "৩ডি ট্রেন্ডিং রিলস ও শর্টস",
         category: "video",
         categoryName: "ভিডিও কনটেন্ট",
-        desc: "ভয়েসওভার সিনক ও আকর্ষণীয় মোশন ভিডিও প্রোডাকশন।",
+        desc: "এআই ভয়েসওভার সিনক ও আকর্ষণীয় মোশন ভিডিও প্রোডাকশন।",
         image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80"
       }
     ];
