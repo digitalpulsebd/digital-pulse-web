@@ -3,548 +3,856 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digital Pulse | সোশ্যাল মিডিয়া মার্কেটিং ও স্মার্ট সলিউশন</title>
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+  <title>Digital Pulse | ডিজিটাল সোশ্যাল মিডিয়া মার্কেটিং ও স্মার্ট অটোমেশন</title>
   
+  <!-- গুগল ফন্টস -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- ফন্ট অসাম আইকন -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     :root {
-      --bg-dark: #070913;
-      --card-bg: rgba(16, 22, 47, 0.75);
-      --card-border: rgba(99, 102, 241, 0.25);
-      --electric-blue: #00d2ff;
-      --electric-purple: #9d4edd;
-      --accent-glow: #3a86ff;
+      --primary: #4f46e5;
+      --secondary: #06b6d4;
+      --dark-bg: #0b0f19;
+      --card-bg: rgba(255, 255, 255, 0.04);
+      --card-border: rgba(255, 255, 255, 0.08);
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: 'Hind Siliguri', sans-serif;
-      background-color: var(--bg-dark);
+      font-family: 'Hind Siliguri', 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--dark-bg);
       color: var(--text-main);
       overflow-x: hidden;
       line-height: 1.6;
     }
-    h1, h2, h3, h4, .brand-font { font-family: 'Plus Jakarta Sans', 'Hind Siliguri', sans-serif; }
-    
-    /* Glowing Orbs */
-    .glow-sphere-1 {
-      position: absolute; top: -80px; left: 8%; width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(0,210,255,0.18) 0%, rgba(7,9,19,0) 70%);
-      pointer-events: none; z-index: 0;
-    }
-    .glow-sphere-2 {
-      position: absolute; top: 350px; right: 5%; width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(157,78,221,0.2) 0%, rgba(7,9,19,0) 70%);
-      pointer-events: none; z-index: 0;
+
+    .glow-bg {
+      position: fixed;
+      top: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(79, 70, 229, 0.22) 0%, rgba(6, 182, 212, 0.08) 50%, transparent 80%);
+      filter: blur(80px);
+      z-index: -1;
+      pointer-events: none;
     }
 
-    /* Navigation Bar */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
     header {
-      position: fixed; top: 0; left: 0; width: 100%;
-      background: rgba(7, 9, 19, 0.88);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(11, 15, 25, 0.85);
+      border-bottom: 1px solid var(--card-border);
       z-index: 1000;
-      padding: 12px 30px;
-      display: flex; align-items: center; justify-content: space-between;
     }
-    .brand-box {
-      display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff;
+
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
     }
+
     .brand-logo {
-      width: 44px; height: 44px; border-radius: 50%;
-      background: #ffffff; padding: 2px;
-      box-shadow: 0 0 15px rgba(0,210,255,0.4);
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .brand-logo .logo-img-wrapper {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #ffffff;
+      padding: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 16px rgba(234, 179, 8, 0.35);
+      border: 1.5px solid rgba(234, 179, 8, 0.6);
       overflow: hidden;
     }
-    .brand-logo img { width: 100%; height: 100%; object-fit: contain; }
-    .brand-name {
-      font-size: 22px; font-weight: 800;
-      background: linear-gradient(135deg, #ffffff, #00d2ff, #c084fc);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+
+    .brand-logo .logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 50%;
     }
 
-    /* Menu & Dropdown */
-    .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
-    .nav-item { position: relative; }
-    .nav-link {
-      color: #cbd5e1; text-decoration: none; font-size: 15px; font-weight: 500;
-      padding: 8px 12px; transition: 0.3s; display: flex; align-items: center; gap: 6px;
+    .brand-logo span {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #ffffff, #cbd5e1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    .nav-link:hover { color: var(--electric-blue); }
-    
-    .dropdown {
-      position: absolute; top: 100%; left: 0;
-      background: #0d1226; border: 1px solid var(--card-border);
-      border-radius: 12px; padding: 10px 0; min-width: 240px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-      display: none; flex-direction: column;
-    }
-    .nav-item:hover .dropdown { display: flex; }
-    .dropdown-link {
-      padding: 10px 18px; color: #94a3b8; text-decoration: none; font-size: 14px;
-      transition: 0.2s; display: flex; align-items: center; gap: 10px;
-    }
-    .dropdown-link:hover { background: rgba(99, 102, 241, 0.15); color: #fff; }
 
-    /* Action Buttons */
-    .btn-gradient {
-      background: linear-gradient(135deg, #00d2ff, #7928ca);
-      color: #fff; font-weight: 600; text-decoration: none;
-      padding: 9px 20px; border-radius: 30px; font-size: 14px;
-      box-shadow: 0 4px 15px rgba(0,210,255,0.3);
-      transition: 0.3s; display: inline-flex; align-items: center; gap: 8px;
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
     }
-    .btn-gradient:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,210,255,0.5); }
 
-    /* Left Sidebar */
-    .left-sidebar {
-      position: fixed; left: 15px; top: 50%; transform: translateY(-50%);
-      background: rgba(13, 18, 38, 0.85); backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.1); border-radius: 20px;
-      padding: 12px 8px; z-index: 999;
-      display: flex; flex-direction: column; gap: 14px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
     }
-    .side-icon-btn {
-      width: 40px; height: 40px; border-radius: 12px;
-      background: rgba(255,255,255,0.05); color: #94a3b8;
-      display: flex; align-items: center; justify-content: center;
-      text-decoration: none; font-size: 16px; transition: 0.3s;
-      position: relative;
-    }
-    .side-icon-btn:hover { background: var(--electric-blue); color: #070913; }
-    .side-tooltip {
-      position: absolute; left: 50px; background: #1e293b; color: #fff;
-      padding: 4px 10px; border-radius: 6px; font-size: 11px; white-space: nowrap;
-      opacity: 0; pointer-events: none; transition: 0.2s;
-    }
-    .side-icon-btn:hover .side-tooltip { opacity: 1; }
 
-    /* Container */
-    .main-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .nav-links a:hover {
+      color: #fff;
+    }
 
-    /* Hero Section */
-    .hero-section {
-      padding-top: 145px; padding-bottom: 70px; text-align: center; position: relative;
+    .btn-header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      padding: 9px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
     }
-    .badge-pill {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(0,210,255,0.1); border: 1px solid rgba(0,210,255,0.3);
-      padding: 6px 18px; border-radius: 30px; color: var(--electric-blue);
-      font-size: 13px; font-weight: 600; margin-bottom: 22px;
-    }
-    .hero-title {
-      font-size: 44px; font-weight: 800; line-height: 1.25; margin-bottom: 18px;
-    }
-    .hero-title span {
-      background: linear-gradient(135deg, #00d2ff, #9d4edd, #ff007f);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .hero-desc {
-      font-size: 18px; color: var(--text-muted); max-width: 780px; margin: 0 auto 35px auto;
-    }
-    .btn-group { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 45px; }
-    .btn-outline {
-      border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.04);
-      color: #fff; padding: 11px 24px; border-radius: 30px; font-weight: 600;
-      text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s;
-    }
-    .btn-outline:hover { background: rgba(255,255,255,0.12); border-color: #fff; }
-    
-    .btn-fb {
-      background: #1877f2; color: #fff; padding: 11px 24px; border-radius: 30px;
-      font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s;
-    }
-    .btn-fb:hover { background: #145dbf; transform: translateY(-2px); }
 
-    /* Showcase Box */
-    .hero-showcase {
-      position: relative; max-width: 950px; margin: 0 auto;
-      border-radius: 20px; padding: 8px;
-      background: linear-gradient(135deg, rgba(0,210,255,0.3), rgba(157,78,221,0.3));
-      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    .hero {
+      padding: 80px 0 50px;
+      text-align: center;
     }
-    .showcase-inner {
-      border-radius: 14px; overflow: hidden; background: #0c1024;
-      display: block; position: relative;
-    }
-    .showcase-inner img { width: 100%; height: auto; max-height: 460px; object-fit: cover; display: block; }
 
-    /* Section Global */
-    .section-title { text-align: center; margin-bottom: 50px; }
-    .section-title h2 { font-size: 34px; margin-bottom: 10px; }
-    .section-title p { color: var(--text-muted); }
-
-    /* Social Media & Marketing Services Grid */
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
-    .service-card {
-      background: var(--card-bg); border: 1px solid var(--card-border);
-      border-radius: 18px; padding: 30px; transition: 0.3s; position: relative;
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 50px;
+      background: rgba(79, 70, 229, 0.15);
+      border: 1px solid rgba(79, 70, 229, 0.3);
+      color: #818cf8;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 24px;
     }
-    .service-card:hover { transform: translateY(-5px); border-color: var(--electric-blue); }
-    .service-icon {
-      width: 54px; height: 54px; border-radius: 14px;
-      background: rgba(0,210,255,0.1); color: var(--electric-blue);
-      display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 20px;
-    }
-    .service-card h3 { font-size: 20px; margin-bottom: 12px; }
-    .service-card p { font-size: 14px; color: var(--text-muted); }
 
-    /* Quick Channel Links Card Bar */
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, #818cf8, #38bdf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 36px;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 13px 26px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 6px 20px rgba(79, 70, 229, 0.3);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      padding: 13px 26px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
     .channels-bar {
-      margin: 60px 0 20px 0;
-      background: linear-gradient(135deg, rgba(16,22,47,0.8), rgba(7,9,19,0.9));
-      border: 1px solid var(--card-border); border-radius: 20px; padding: 30px;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 50px 0;
     }
-    .channel-item {
-      display: flex; align-items: center; gap: 15px; text-decoration: none; color: #fff;
-      padding: 15px; border-radius: 14px; background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06); transition: 0.3s;
+
+    .channel-box {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      color: #fff;
+      transition: all 0.3s;
     }
-    .channel-item:hover { background: rgba(0,210,255,0.1); border-color: var(--electric-blue); }
+
+    .channel-box:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-3px);
+    }
+
     .channel-icon {
-      width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #38bdf8;
     }
 
-    /* Founder Card */
-    .founder-card {
-      margin: 60px 0; background: linear-gradient(135deg, rgba(16,22,47,0.9), rgba(7,9,19,0.95));
-      border: 1px solid var(--card-border); border-radius: 24px; padding: 45px;
-      display: grid; grid-template-columns: 240px 1fr; gap: 40px; align-items: center;
-    }
-    .founder-img-box {
-      border-radius: 20px; overflow: hidden;
-      border: 2px solid rgba(0,210,255,0.4); box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    }
-    .founder-img-box img { width: 100%; height: 280px; object-fit: cover; display: block; }
-    .founder-meta h3 { font-size: 28px; margin-bottom: 6px; }
-    .founder-tag { color: var(--electric-blue); font-size: 15px; font-weight: 600; margin-bottom: 16px; }
-    .founder-desc { color: #cbd5e1; font-size: 15px; line-height: 1.7; margin-bottom: 20px; }
-    .founder-chips { display: flex; flex-wrap: wrap; gap: 10px; }
-    .chip {
-      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
-      padding: 6px 14px; border-radius: 20px; font-size: 12px; color: #e2e8f0;
+    .channel-info h4 {
+      font-size: 15px;
+      font-weight: 600;
     }
 
-    /* Footer */
+    .channel-info p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-top: 8px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-bottom: 70px;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 26px;
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+    }
+
+    .service-icon {
+      font-size: 30px;
+      color: #818cf8;
+      margin-bottom: 16px;
+    }
+
+    .service-card h3 {
+      font-size: 19px;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* শালীন হিজাব ও বোরকা অ্যাভাটার সেকশন */
+    .lead-section {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 40px 32px;
+      margin-bottom: 80px;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .avatar-wrapper {
+      width: 210px;
+      height: 210px;
+      margin: 0 auto;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1e1b4b, #0f172a);
+      border: 3px solid rgba(129, 140, 248, 0.4);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .avatar-svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .lead-content h3 {
+      font-size: 26px;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .lead-tagline {
+      color: #38bdf8;
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+
+    .lead-desc {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .skills-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-pill {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 13px;
+      color: #cbd5e1;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .skill-pill i {
+      color: #818cf8;
+    }
+
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 8px 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 14px;
+      transition: all 0.3s;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 80px;
+    }
+
+    .portfolio-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .portfolio-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .portfolio-body {
+      padding: 18px;
+    }
+
+    .portfolio-body span {
+      font-size: 12px;
+      color: #38bdf8;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .portfolio-body h4 {
+      font-size: 17px;
+      margin: 6px 0;
+    }
+
+    .portfolio-body p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    .contact-wrapper {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 40px 24px;
+      max-width: 600px;
+      margin: 0 auto 80px;
+      text-align: center;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 13px 16px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 13px;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
     footer {
-      background: #04060d; border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 60px 0 30px 0;
+      border-top: 1px solid var(--card-border);
+      padding: 40px 0 20px;
+      background: rgba(0, 0, 0, 0.3);
     }
-    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 40px; }
-    .footer-col h4 { margin-bottom: 18px; font-size: 16px; color: #fff; }
-    .footer-col ul { list-style: none; }
-    .footer-col ul li { margin-bottom: 10px; }
-    .footer-col ul li a { color: var(--text-muted); text-decoration: none; font-size: 14px; transition: 0.2s; }
-    .footer-col ul li a:hover { color: var(--electric-blue); }
-    .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 25px; color: #64748b; font-size: 13px; }
 
-    @media (max-width: 850px) {
-      .founder-card { grid-template-columns: 1fr; text-align: center; }
-      .founder-img-box { margin: 0 auto; max-width: 200px; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      margin-bottom: 25px;
+    }
+
+    .footer-col h5 {
+      font-size: 16px;
+      margin-bottom: 14px;
+      color: #fff;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 9px;
+    }
+
+    .footer-col ul a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
       .nav-links { display: none; }
-      .left-sidebar { display: none; }
-      .hero-title { font-size: 32px; }
+      .lead-section {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .skills-badges {
+        justify-content: center;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="glow-sphere-1"></div>
-  <div class="glow-sphere-2"></div>
+  <div class="glow-bg"></div>
 
-  <!-- Left Sidebar (Quick Access & Direct Links) -->
-  <aside class="left-sidebar">
-    <a href="#" class="side-icon-btn">
-      <i class="fa-solid fa-house"></i>
-      <span class="side-tooltip">হোম ল্যান্ডিং পেজ</span>
-    </a>
-    <a href="https://digital-pulse-app-seven.vercel.app/" target="_blank" class="side-icon-btn">
-      <i class="fa-solid fa-rocket text-indigo-400"></i>
-      <span class="side-tooltip">ডিজিটাল পালস অ্যাপ</span>
-    </a>
-    <a href="https://www.facebook.com/digitalpulse.media.bd/" target="_blank" class="side-icon-btn">
-      <i class="fa-brands fa-facebook text-blue-400"></i>
-      <span class="side-tooltip">ফেসবুক পেজ</span>
-    </a>
-    <a href="https://wa.me/8801568477991" target="_blank" class="side-icon-btn">
-      <i class="fa-brands fa-whatsapp text-emerald-400"></i>
-      <span class="side-tooltip">হোয়াটসঅ্যাপ চ্যাট</span>
-    </a>
-    <a href="mailto:mastermindai.25@gmail.com" class="side-icon-btn">
-      <i class="fa-solid fa-envelope text-amber-400"></i>
-      <span class="side-tooltip">ইমেইল পাঠান</span>
-    </a>
-    <a href="#about" class="side-icon-btn">
-      <i class="fa-solid fa-user-tie"></i>
-      <span class="side-tooltip">ফাউন্ডার পরিচিতি</span>
-    </a>
-  </aside>
-
-  <!-- Top Navigation Header -->
+  <!-- হেডার -->
   <header>
-    <a href="#" class="brand-box">
-      <div class="brand-logo">
-        <img src="logo.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=100&h=100&q=80';" alt="Digital Pulse Logo">
-      </div>
-      <span class="brand-name">Digital Pulse</span>
-    </a>
-
-    <!-- Navigation Menu with Sub-menus -->
-    <ul class="nav-links">
-      <li class="nav-item">
-        <a href="#" class="nav-link">হোম</a>
-      </li>
-      <li class="nav-item">
-        <a href="#social-media" class="nav-link">
-          সোশ্যাল মিডিয়া ও মার্কেটিং <i class="fa-solid fa-chevron-down text-xs"></i>
-        </a>
-        <div class="dropdown">
-          <a href="#social-media" class="dropdown-link"><i class="fa-brands fa-facebook"></i> মেটা ও ফেসবুক ম্যানেজমেন্ট</a>
-          <a href="#social-media" class="dropdown-link"><i class="fa-solid fa-video"></i> রিলস ও ভিডিও ক্রিয়েটিভস</a>
-          <a href="#social-media" class="dropdown-link"><i class="fa-solid fa-palette"></i> ব্যানার, লোগো ও পোস্ট ডিজাইন</a>
-          <a href="#social-media" class="dropdown-link"><i class="fa-solid fa-comments"></i> অটো কমেন্ট ও মেসেজ ফিল্টার</a>
+    <div class="container nav-bar">
+      <a href="#" class="brand-logo">
+        <div class="logo-img-wrapper">
+          <img src="logo.png" alt="Digital Pulse Logo" class="logo-img">
         </div>
-      </li>
-      <li class="nav-item">
-        <a href="#services" class="nav-link">
-          টেক সার্ভিসসমূহ <i class="fa-solid fa-chevron-down text-xs"></i>
-        </a>
-        <div class="dropdown">
-          <a href="https://digital-pulse-app-seven.vercel.app/" target="_blank" class="dropdown-link"><i class="fa-solid fa-rocket"></i> ডিজিটাল পালস ক্লাউড অ্যাপ</a>
-          <a href="#services" class="dropdown-link"><i class="fa-solid fa-robot"></i>  বিজনেস অটোমেশন</a>
-          <a href="#services" class="dropdown-link"><i class="fa-solid fa-window-maximize"></i> বিজনেস ল্যান্ডিং পেজ</a>
-          <a href="#services" class="dropdown-link"><i class="fa-solid fa-database"></i> রিসার্চ ডেটা ম্যানেজমেন্ট</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a href="#about" class="nav-link">ফাউন্ডার পরিচিতি</a>
-      </li>
-      <li class="nav-item">
-        <a href="#contact" class="nav-link">যোগাযোগ</a>
-      </li>
-    </ul>
+        <span>Digital Pulse</span>
+      </a>
 
-    <a href="https://digital-pulse-app-seven.vercel.app/" target="_blank" class="btn-gradient">
-      <span>ডিজিটাল পালস অ্যাপ</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
-    </a>
+      <ul class="nav-links">
+        <li><a href="#services">সার্ভিসসমূহ</a></li>
+        <li><a href="#lead">পরিচালনা ও নেতৃত্ব</a></li>
+        <li><a href="#portfolio">কাজের শোকেস</a></li>
+        <li><a href="#contact">যোগাযোগ</a></li>
+      </ul>
+
+      <a href="https://digital-pulse-app-seven.vercel.app/" target="_blank" class="btn-header">
+        <i class="fa-solid fa-cloud"></i> ক্লাউড অ্যাপ
+      </a>
+    </div>
   </header>
 
-  <!-- Hero Section -->
-  <main class="main-container">
-    <section class="hero-section">
-      <div class="badge-pill">
-        <i class="fa-solid fa-bolt"></i> ডিজিটাল সোশ্যাল মিডিয়া মার্কেটিং ও স্মার্ট অটোমেশন
+  <main class="container">
+    <!-- হিরো সেকশন -->
+    <section class="hero">
+      <div class="badge">
+        <i class="fa-solid fa-sparkles"></i> ডিজিটাল সোশ্যাল মিডিয়া মার্কেটিং ও স্মার্ট অটোমেশন
       </div>
-      
-      <h1 class="hero-title">
-        আপনার ব্যবসাকে পৌঁছে দিন লাখো মানুষের কাছে <br>
-        <span>Digital Pulse সোশ্যাল মিডিয়া দিয়ে</span>
+      <h1>
+        আপনার ব্র্যান্ডকে নিয়ে যান নতুন উচ্চতায় <br>
+        <span>Digital Pulse মিডিয়া সলিউশন দিয়ে</span>
       </h1>
-
-      <p class="hero-desc">
-        আমরা পরিচালনা করি প্রফেশনাল ফেসবুক ও মেটা বিজনেস পেইজ, আকর্ষণীয় রিলস ও ভিডিও কনটেন্ট, স্বয়ংক্রিয় মেসেজ-কমেন্ট অটোমেশন এবং ক্লাউড অ্যাপলিকেশন—সবকিছু একই প্ল্যাটফর্মে।
+      <p>
+        প্রফেশনাল মেটা ও ফেসবুক পেইজ পরিচালনা, ভাইরাল রিলস ও আকর্ষণীয় ব্যানার ডিজাইন, ইনস্ট্যান্ট কমেন্ট ফিল্টার এবং স্বয়ংক্রিয় কাস্টমার ডেটাবেজ ম্যানেজমেন্ট।
       </p>
-
-      <!-- Main Action Buttons -->
-      <div class="btn-group">
-        <a href="https://digital-pulse-app-seven.vercel.app/" target="_blank" class="btn-gradient">
-          <i class="fa-solid fa-rocket"></i> ডিজিটাল পালস অ্যাপ ওপেন করুন
+      <div class="hero-actions">
+        <a href="https://digital-pulse-app-seven.vercel.app/" target="_blank" class="btn-primary">
+          <i class="fa-solid fa-rocket"></i> ডিজিটাল পালস অ্যাপ
         </a>
-        <a href="https://www.facebook.com/digitalpulse.media.bd/" target="_blank" class="btn-fb">
-          <i class="fa-brands fa-facebook-f"></i> আমাদের ফেসবুক পেইজ ভিজিট করুন
+        <a href="https://www.facebook.com/digitalpulse.media.bd/" target="_blank" class="btn-secondary">
+          <i class="fa-brands fa-facebook"></i> অফিসিয়াল ফেসবুক পেইজ
         </a>
-        <a href="https://wa.me/8801568477991?text=হ্যালো%20Digital%20Pulse,%20আমি%20সোশ্যাল%20মিডিয়া%20মার্কেটিং%20ও%20সার্ভিস%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="btn-outline">
-          <i class="fa-brands fa-whatsapp text-emerald-400"></i> হোয়াটসঅ্যাপে মেসেজ দিন
+        <a href="https://wa.me/8801568477991?text=হ্যালো%20Digital%20Pulse,%20আমি%20সার্ভিস%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="btn-secondary">
+          <i class="fa-brands fa-whatsapp"></i> হোয়াটসঅ্যাপ চ্যাট
         </a>
-      </div>
-
-      <!-- Showcase Image -->
-      <div class="hero-showcase">
-        <div class="showcase-inner">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Digital Pulse Intelligence Dashboard">
-        </div>
       </div>
     </section>
 
-    <!-- Channels Direct Connect Bar -->
-    <div class="channels-bar">
-      <a href="https://www.facebook.com/digitalpulse.media.bd/" target="_blank" class="channel-item">
-        <div class="channel-icon" style="background: rgba(24,119,242,0.15); color: #1877f2;">
-          <i class="fa-brands fa-facebook-f"></i>
-        </div>
-        <div>
-          <div style="font-size: 12px; color: var(--text-muted);">ফেসবুক অফিসিয়াল পেইজ</div>
-          <div style="font-weight: 700; font-size: 14px;">digitalpulse.media.bd</div>
+    <!-- চ্যানেল কানেক্ট বার -->
+    <div id="channels" class="channels-bar">
+      <a href="https://www.facebook.com/digitalpulse.media.bd/" target="_blank" class="channel-box">
+        <div class="channel-icon"><i class="fa-brands fa-facebook-f"></i></div>
+        <div class="channel-info">
+          <h4>ফেসবুক পেইজ</h4>
+          <p>digitalpulse.media.bd</p>
         </div>
       </a>
-
-      <a href="https://digital-pulse-app-seven.vercel.app/" target="_blank" class="channel-item">
-        <div class="channel-icon" style="background: rgba(157,78,221,0.15); color: #c084fc;">
-          <i class="fa-solid fa-rocket"></i>
-        </div>
-        <div>
-          <div style="font-size: 12px; color: var(--text-muted);">ডিজিটাল পালস ক্লাউড অ্যাপ</div>
-          <div style="font-weight: 700; font-size: 14px;">digital-pulse-app.vercel</div>
+      <a href="https://digital-pulse-app-seven.vercel.app/" target="_blank" class="channel-box">
+        <div class="channel-icon"><i class="fa-solid fa-laptop-code"></i></div>
+        <div class="channel-info">
+          <h4>ক্লাউড অ্যাপ</h4>
+          <p>digital-pulse-app.vercel</p>
         </div>
       </a>
-
-      <a href="https://wa.me/8801568477991" target="_blank" class="channel-item">
-        <div class="channel-icon" style="background: rgba(16,185,129,0.15); color: #10b981;">
-          <i class="fa-brands fa-whatsapp"></i>
-        </div>
-        <div>
-          <div style="font-size: 12px; color: var(--text-muted);">সরাসরি হোয়াটসঅ্যাপ</div>
-          <div style="font-weight: 700; font-size: 14px;"> ০১৫৬৮৪৭৭৯৯১</div>
+      <a href="https://wa.me/8801568477991" target="_blank" class="channel-box">
+        <div class="channel-icon"><i class="fa-brands fa-whatsapp"></i></div>
+        <div class="channel-info">
+          <h4>হোয়াটসঅ্যাপ</h4>
+          <p>+880 1568-477991</p>
         </div>
       </a>
-
-      <a href="mailto:mastermindai.25@gmail.com" class="channel-item">
-        <div class="channel-icon" style="background: rgba(0,210,255,0.15); color: var(--electric-blue);">
-          <i class="fa-solid fa-envelope"></i>
-        </div>
-        <div>
-          <div style="font-size: 12px; color: var(--text-muted);">অফিসিয়াল ইমেইল</div>
-          <div style="font-weight: 700; font-size: 13px;">mastermindai.25@gmail.com</div>
+      <a href="mailto:mastermindai.25@gmail.com" class="channel-box">
+        <div class="channel-icon"><i class="fa-regular fa-envelope"></i></div>
+        <div class="channel-info">
+          <h4>ইমেইল ঠিকানা</h4>
+          <p>mastermindai.25@gmail.com</p>
         </div>
       </a>
     </div>
 
-    <!-- Digital Social Media Special Services Section -->
-    <section id="social-media" style="padding: 60px 0 40px 0;">
+    <!-- সার্ভিস সেকশন (সম্পূর্ণ সোশ্যাল মিডিয়া ও লিড ফোকাসড) -->
+    <section id="services">
       <div class="section-title">
-        <div class="badge-pill"><i class="fa-solid fa-bullhorn"></i> ডিজিটাল সোশ্যাল মিডিয়া স্পেশাল সার্ভিস</div>
-        <h2>সোশ্যাল মিডিয়ায় আপনার ব্র্যান্ড গ্রোথ</h2>
-        <p>আমরা ফেসবুক পেইজ সেটআপ থেকে শুরু করে উন্নত কনটেন্ট ও সেলস অটোমেশন সম্পূর্ণ পরিচালনা করি</p>
+        <span style="color: var(--secondary); font-weight: 600; text-transform: uppercase;">আমাদের সেবাসমূহ</span>
+        <h2>সোশ্যাল গ্রোথ ও অটোমেশনের পূর্ণাঙ্গ সমাধান</h2>
       </div>
 
       <div class="services-grid">
-        <!-- Social 1 -->
         <div class="service-card">
-          <div class="service-icon"><i class="fa-brands fa-facebook"></i></div>
-          <h3>মেটা বিজনেস পেইজ ও পেইড ক্যাম্পেইন</h3>
-          <p>অফিসিয়াল ফেসবুক পেজ অপ্টিমাইজেশন, মেটা বিজনেস স্যুট দিয়ে বিজ্ঞাপন ও সঠিক অডিয়েন্স টার্গেটিং।</p>
+          <div class="service-icon"><i class="fa-solid fa-bullhorn"></i></div>
+          <h3>মেটা পেইজ ও পেইড ক্যাম্পেইন</h3>
+          <p>টার্গেটেড সোশ্যাল অডিয়েন্স রিসার্চ, মেটা বিজনেস স্যুট দিয়ে বিজ্ঞাপন এবং সেলস ফানেল অপ্টিমাইজেশন।</p>
         </div>
-
-        <!-- Social 2 -->
         <div class="service-card">
-          <div class="service-icon"><i class="fa-solid fa-photo-film"></i></div>
-          <h3>রিলস, অ্যানিমেশন ও ভিডিও প্রোডাকশন</h3>
-          <p>হাই-কনভার্টিং শর্ট রিলস, ৩ডি অ্যানিমেশন প্রম্পট, ভয়েসওভার সিনক ও এআই চালিত ভিডিও কনটেন্ট তৈরি।</p>
+          <div class="service-icon"><i class="fa-solid fa-video"></i></div>
+          <h3>রিলস ও ভাইরাল কনটেন্ট</h3>
+          <p>উচ্চ কনভার্সন শর্ট ভিডিও, এআই ভয়েসওভার সিনক, ৩ডি অ্যানিমেশন এবং আকর্ষণীয় ভিডিও প্রোডাকশন।</p>
         </div>
-
-        <!-- Social 3 -->
-        <div class="service-card">
-          <div class="service-icon"><i class="fa-solid fa-comments"></i></div>
-          <h3>স্বয়ংক্রিয় কমেন্ট ও ইনবক্স মডারেশন</h3>
-          <p>পোস্টে কমেন্ট করার সাথে সাথে অটোমেটিক রিপ্লাই, ইনবক্সে মেসেজ ডেলিভারি এবং কাস্টমার লিড কালেক্ট করা।</p>
-        </div>
-
-        <!-- Social 4 -->
         <div class="service-card">
           <div class="service-icon"><i class="fa-solid fa-palette"></i></div>
-          <h3>ডিজিটাল ব্র্যান্ডিং, ব্যানার ও ফ্লায়ার</h3>
-          <p>ভিজিটিং কার্ড, সোশ্যাল মিডিয়া ব্যানার, প্রমোশনাল ফ্লায়ার এবং কর্পোরেট ভিজ্যুয়াল প্যাকেজ ডিজাইন।</p>
+          <h3>ব্র্যান্ড ব্যানার ও ফ্লায়ার</h3>
+          <p>সোশ্যাল মিডিয়া অফার ব্যানার, পোস্ট ডিজাইন, ভিজিটিং কার্ড এবং প্রমোশনাল ভিজ্যুয়াল প্যাকেজ।</p>
         </div>
-      </div>
-    </section>
-
-    <!-- Tech & Automation Services -->
-    <section id="services" style="padding: 40px 0 60px 0;">
-      <div class="section-title">
-        <h2>স্মার্ট টেকনোলজি সার্ভিস</h2>
-        <p>ব্যবসায়িক ম্যানুয়াল কাজ কমিয়ে সম্পূর্ণ স্বয়ংক্রিয় সিস্টেমে নিয়ে আসার আধুনিক প্রযুক্তি</p>
-      </div>
-
-      <div class="services-grid">
         <div class="service-card">
           <div class="service-icon"><i class="fa-solid fa-gears"></i></div>
-          <h3> বিজনেস অটোমেশন</h3>
-          <p>ফর্ম পূরণ হলে সাথে সাথে হোয়াটসঅ্যাপ ও ইমেইলে কনফার্মেশন পাঠানো এবং ক্লাউড শিটে ডেটা সিঙ্ক করা।</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><i class="fa-solid fa-laptop-code"></i></div>
-          <h3>ল্যান্ডিং পেইজ ও ক্লাউড অ্যাপ</h3>
-          <p>আপনার পণ্যের জন্য আধুনিক ল্যান্ডিং পেইজ এবং ডিজিটাল পালসের নিজস্ব ক্লাউড অ্যাপের দ্রুত অ্যাক্সেস।</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><i class="fa-solid fa-database"></i></div>
-          <h3>ডেটা ম্যানেজমেন্ট ও অ্যানালিটিক্স</h3>
-          <p>বড় ডেটাসেট হ্যান্ডলিং, এসকিউএল সার্ভার (SQL Server), স্ট্যাটা (STATA) ও এক্সিকিউটিভ ড্যাশবোর্ড তৈরি।</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><i class="fa-solid fa-shield-halved"></i></div>
-          <h3>নিরাপদ ব্যাকআপ ও ডাটাবেজ</h3>
-          <p>আন্তর্জাতিক মানের কোয়ালিটি কন্ট্রোল, ডেটা ভ্যালিডেশন এবং শতভাগ নির্ভরযোগ্য ক্লাউড আর্কাইভিং।</p>
+          <h3>ইনস্ট্যান্ট কমেন্ট ও কাস্টমার লিড</h3>
+          <p>পোস্টে কমেন্ট আসা মাত্র অটো-রিপ্লাই, ইনবক্স মেসেজ ডেলিভারি এবং কাস্টমারদের তথ্য স্বয়ংক্রিয় শিটে সংরক্ষণ।</p>
         </div>
       </div>
     </section>
 
-    <!-- Founder Card (Exclusive Section for Credentials) -->
-    <section id="about">
-      <div class="founder-card">
-        <div class="founder-img-box">
-          <img src="profile.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&h=450&q=80';" alt="Razia Sultana">
+    <!-- পরিচালনা ও প্রফেশনাল লিডারশিপ -->
+    <section id="lead">
+      <div class="lead-section">
+        <div class="avatar-wrapper">
+          <svg class="avatar-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="200" height="200" fill="#131b2e"/>
+            <path d="M25 200C25 155 58 135 100 135C142 135 175 155 175 200H25Z" fill="#1e2235"/>
+            <path d="M45 200C45 165 70 148 100 148C130 148 155 165 155 200H45Z" fill="#2d334d"/>
+            <path d="M54 90C54 50 72 32 100 32C128 32 146 50 146 90C146 128 138 145 100 145C62 145 54 128 54 90Z" fill="#312e81"/>
+            <ellipse cx="100" cy="85" rx="33" ry="42" fill="#4338ca"/>
+            <ellipse cx="100" cy="88" rx="27" ry="32" fill="#e0bb9b"/>
+            <path d="M73 82C75 66 85 58 100 58C115 58 125 66 127 82C121 75 111 72 100 72C89 72 79 75 73 82Z" fill="#3730a3"/>
+            <rect x="79" y="80" width="16" height="12" rx="3" stroke="#0f172a" stroke-width="2" fill="rgba(255,255,255,0.2)"/>
+            <rect x="105" y="80" width="16" height="12" rx="3" stroke="#0f172a" stroke-width="2" fill="rgba(255,255,255,0.2)"/>
+            <path d="M95 85H105" stroke="#0f172a" stroke-width="2"/>
+            <circle cx="87" cy="86" r="2" fill="#1e293b"/>
+            <circle cx="113" cy="86" r="2" fill="#1e293b"/>
+            <path d="M94 105C97 107 103 107 106 105" stroke="#8c583f" stroke-width="2" stroke-linecap="round"/>
+            <path d="M78 112C85 125 115 125 122 112C128 135 118 144 100 144C82 144 72 135 78 112Z" fill="#312e81"/>
+          </svg>
         </div>
-        <div class="founder-meta">
-          <div class="badge-pill" style="margin-bottom: 10px;">ফাউন্ডারের পরিচিতি</div>
-          <h3>রাজিয়া সুলতানা</h3>
-          <div class="founder-tag">প্রতিষ্ঠাতা, ডিজিটাল পালস | সিনিয়র ডেটা স্পেশালিস্ট ও সোশ্যাল মিডিয়া অটোমেশন লিড</div>
-          <p class="founder-desc">
-            একটি শীর্ষ আন্তর্জাতিক স্বাস্থ্য গবেষণা সংস্থায় দীর্ঘ ২৬ বছরের নিরবচ্ছিন্ন বাস্তব ডেটা ম্যানেজমেন্ট, কঠোর কোয়ালিটি কন্ট্রোল এবং ডেটাবেজ প্রশাসনের বাস্তব অভিজ্ঞতা রয়েছে। সেই সুদৃঢ় পেশাগত বিশ্বস্ততা ও নিষ্ঠাকে যুক্ত করে <strong>Digital Pulse</strong> প্ল্যাটফর্মের মাধ্যমে আমরা সোশ্যাল মিডিয়া মার্কেটিং, উন্নত কনটেন্ট ক্রিয়েশন এবং এআই অটোমেশন সার্ভিস প্রদান করছি।
+
+        <div class="lead-content">
+          <h3>অভিজ্ঞ নেতৃত্ব ও সুদৃঢ় পেশাদারিত্ব</h3>
+          <div class="lead-tagline">সিনিয়র ডেটা ম্যানেজমেন্ট ও সোশ্যাল মিডিয়া অটোমেশন লিড</div>
+          <p class="lead-desc">
+            একটি আন্তর্জাতিক স্বাস্থ্য গবেষণা সংস্থায় দীর্ঘ ২৬ বছরের বাস্তব ডেটা ম্যানেজমেন্ট, নিখুঁত কোয়ালিটি কন্ট্রোল এবং ডাটাবেজ পরিচালনার সমৃদ্ধ অভিজ্ঞতা রয়েছে। সেই সুদৃঢ় পেশাগত নিষ্ঠা, বিশ্বস্ততা ও কার্যক্ষমতাকে যুক্ত করে <strong>Digital Pulse</strong> প্ল্যাটফর্মের মাধ্যমে আমরা উচ্চমানের মেটা সোশ্যাল মিডিয়া মার্কেটিং, কনটেন্ট ক্রিয়েশন ও বিজনেস অটোমেশন সার্ভিস নিশ্চিত করছি।
           </p>
-          <div class="founder-chips">
-            <span class="chip"><i class="fa-solid fa-graduation-cap"></i> M.B.S. ও B.Com (ম্যানেজমেন্ট)</span>
-            <span class="chip"><i class="fa-solid fa-award"></i> ডিপ্লোমা ইন কম্পিউটার সায়েন্স (NYDTI)</span>
-            <span class="chip"><i class="fa-brands fa-facebook"></i> মেটা বিজনেস ও সোশ্যাল মিডিয়া মডারেশন</span>
-            <span class="chip"><i class="fa-solid fa-server"></i> SQL Server, STATA ও Advanced AI</span>
+          <div class="skills-badges">
+            <span class="skill-pill"><i class="fa-solid fa-circle-check"></i> মেটা বিজনেস ও বিজ্ঞাপন অপ্টিমাইজেশন</span>
+            <span class="skill-pill"><i class="fa-solid fa-circle-check"></i> অটো কমেন্ট ও ইনবক্স ফিল্টারিং</span>
+            <span class="skill-pill"><i class="fa-solid fa-circle-check"></i> শতভাগ নির্ভুল কাস্টমার ডেটাবেজ ও লিড ট্র্যাকিং</span>
+            <span class="skill-pill"><i class="fa-solid fa-circle-check"></i> সেলস অ্যানালিটিক্স ও রিপোর্ট ম্যানেজমেন্ট</span>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- কাজের শোকেস -->
+    <section id="portfolio">
+      <div class="section-title">
+        <span style="color: var(--secondary); font-weight: 600; text-transform: uppercase;">পোর্টফোলিও ও কাজের নমুনা</span>
+        <h2>সাম্প্রতিক প্রজেক্ট শোকেস</h2>
+      </div>
+
+      <div class="filter-buttons">
+        <button class="filter-btn active" onclick="filterGallery('all')">সবগুলো</button>
+        <button class="filter-btn" onclick="filterGallery('social')">সোশ্যাল মার্কেটিং</button>
+        <button class="filter-btn" onclick="filterGallery('design')">ব্যানার ও ফ্লায়ার</button>
+        <button class="filter-btn" onclick="filterGallery('video')">ভিডিও ও রিলস</button>
+      </div>
+
+      <div id="portfolio-container" class="portfolio-grid"></div>
+    </section>
+
+    <!-- কন্ট্যাক্ট ফর্ম -->
+    <section id="contact">
+      <div class="contact-wrapper">
+        <h2 style="font-size: 26px; margin-bottom: 6px;">প্রজেক্ট বা ক্যাম্পেইন শুরু করুন</h2>
+        <p style="color: var(--text-muted); font-size: 14.5px;">আপনার প্রয়োজন জানিয়ে মেসেজ দিন, দ্রুত সমাধান দেওয়া হবে</p>
+
+        <form class="contact-form" onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <input type="text" id="custName" placeholder="আপনার নাম / পেজের নাম" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" id="custPhone" placeholder="মোবাইল বা হোয়াটসঅ্যাপ নম্বর" required>
+          </div>
+          <div class="form-group">
+            <select id="custService">
+              <option value="সোশ্যাল মিডিয়া পেজ ও ক্যাম্পেইন">সোশ্যাল মিডিয়া পেইজ ও ক্যাম্পেইন</option>
+              <option value="রিলস ও ভিডিও কনটেন্ট">রিলস ও ভিডিও কনটেন্ট মেকিং</option>
+              <option value="ব্যানার, ফ্লায়ার ও ব্র্যান্ডিং">ব্যানার, ফ্লায়ার ও ব্র্যান্ডিং</option>
+              <option value="কমেন্ট অটোমেশন ও ডেটা লিড">কমেন্ট অটোমেশন ও ডেটা লিড সিস্টেম</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <textarea id="custMsg" rows="3" placeholder="প্রজেক্ট সম্পর্কে সংক্ষেপে লিখুন..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">রিকোয়েস্ট পাঠান 🚀</button>
+          <div id="statusMsg" style="text-align: center; font-size: 14px; margin-top: 10px;"></div>
+        </form>
+      </div>
+    </section>
   </main>
 
-  <!-- Footer Section -->
-  <footer id="contact">
-    <div class="main-container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h4 class="brand-name" style="font-size: 20px;">Digital Pulse</h4>
-          <p style="color: var(--text-muted); font-size: 14px; margin-top: 10px;">
-            ডিজিটাল সোশ্যাল মিডিয়া গ্রোথ, কনটেন্ট ক্রিয়েশন, ক্লাউড অ্যাপ এবং আন্তর্জাতিক মানের ডেটা অটোমেশন সলিউশন।
-          </p>
+  <!-- ফুটার -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div class="brand-logo" style="margin-bottom: 12px;">
+          <div class="logo-img-wrapper" style="width: 36px; height: 36px;">
+            <img src="logo.png" alt="Digital Pulse Logo" class="logo-img">
+          </div>
+          <span style="font-size: 18px;">Digital Pulse</span>
         </div>
-        <div class="footer-col">
-          <h4>কুইক লিংকসমূহ</h4>
-          <ul>
-            <li><a href="#">ল্যান্ডিং পেজ হোম</a></li>
-            <li><a href="https://digital-pulse-app-seven.vercel.app/" target="_blank">ডিজিটাল পালস অ্যাপ</a></li>
-            <li><a href="https://www.facebook.com/digitalpulse.media.bd/" target="_blank">অফিসিয়াল ফেসবুক পেইজ</a></li>
-            <li><a href="#social-media">সোশ্যাল মিডিয়া সার্ভিস</a></li>
-            <li><a href="#about">ফাউন্ডার পরিচিতি</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>সরাসরি যোগাযোগের ঠিকানা</h4>
-          <ul>
-            <li><a href="https://wa.me/8801568477991" target="_blank"><i class="fa-brands fa-whatsapp text-emerald-400"></i> ০১৭১৩৬৫০৯৭৯ / ০১৫৬৮৪৭৭৯৯১</a></li>
-            <li><a href="mailto:mastermindai.25@gmail.com"><i class="fa-solid fa-envelope text-indigo-400"></i> mastermindai.25@gmail.com</a></li>
-            <li><a href="https://www.facebook.com/digitalpulse.media.bd/" target="_blank"><i class="fa-brands fa-facebook text-blue-400"></i> facebook.com/digitalpulse.media.bd</a></li>
-          </ul>
-        </div>
+        <p style="color: var(--text-muted); font-size: 13.5px;">
+          ডিজিটাল গ্রোথ, প্রফেশনাল সোশ্যাল মিডিয়া ম্যানেজমেন্ট এবং আধুনিক ক্লাউড সলিউশন।
+        </p>
       </div>
-      <div class="footer-bottom">
-        &copy; ২০২৬ Digital Pulse | প্রতিষ্ঠাতা: রাজিয়া সুলতানা। সর্বস্বত্ব সংরক্ষিত।
+      <div class="footer-col">
+        <h5>চ্যানেল লিংকসমূহ</h5>
+        <ul>
+          <li><a href="https://www.facebook.com/digitalpulse.media.bd/" target="_blank">ফেসবুক পেইজ</a></li>
+          <li><a href="https://digital-pulse-app-seven.vercel.app/" target="_blank">ডিজিটাল পালস ক্লাউড অ্যাপ</a></li>
+          <li><a href="#services">টেক সার্ভিস</a></li>
+          <li><a href="#lead">পরিচালনা ও নেতৃত্ব</a></li>
+        </ul>
       </div>
+      <div class="footer-col">
+        <h5>যোগাযোগ</h5>
+        <ul>
+          <li><a href="https://wa.me/8801568477991" target="_blank"><i class="fa-brands fa-whatsapp"></i> ০১৫৬৮৪৭৭৯৯১ / ০১৭১৩৬৫০৯৭৯</a></li>
+          <li><a href="mailto:mastermindai.25@gmail.com"><i class="fa-regular fa-envelope"></i> mastermindai.25@gmail.com</a></li>
+          <li><a href="https://www.facebook.com/digitalpulse.media.bd/" target="_blank"><i class="fa-solid fa-location-dot"></i> ঢাকা, বাংলাদেশ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      © ২০২৬ Digital Pulse Media. সর্বস্বত্ব সংরক্ষিত।
     </div>
   </footer>
 
+  <script>
+    const workItems = [
+      {
+        title: "টার্গেটেড মেটা পেইজ ও ক্যাম্পেইন",
+        category: "social",
+        categoryName: "সোশ্যাল মার্কেটিং",
+        desc: "হাই-কনভার্টিং অডিয়েন্স রিসার্চ এবং মেটা অ্যাড অপ্টিমাইজেশন।",
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        title: "ব্র্যান্ড ব্যানার ও প্রমোশনাল ফ্লায়ার",
+        category: "design",
+        categoryName: "ডিজাইন",
+        desc: "সোশ্যাল মিডিয়ার জন্য আকর্ষণীয় ও প্রফেশনাল ভিজ্যুয়াল পোস্ট।",
+        image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        title: "৩ডি ট্রেন্ডিং রিলস ও শর্টস",
+        category: "video",
+        categoryName: "ভিডিও কনটেন্ট",
+        desc: "ভয়েসওভার সিনক ও আকর্ষণীয় মোশন ভিডিও প্রোডাকশন।",
+        image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80"
+      }
+    ];
+
+    function renderPortfolio(items) {
+      const container = document.getElementById("portfolio-container");
+      container.innerHTML = items.map(item => `
+        <div class="portfolio-card">
+          <img src="${item.image}" alt="${item.title}">
+          <div class="portfolio-body">
+            <span>${item.categoryName}</span>
+            <h4>${item.title}</h4>
+            <p>${item.desc}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterGallery(cat) {
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      if (cat === 'all') {
+        renderPortfolio(workItems);
+      } else {
+        renderPortfolio(workItems.filter(item => item.category === cat));
+      }
+    }
+
+    renderPortfolio(workItems);
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const status = document.getElementById('statusMsg');
+      const name = document.getElementById('custName').value;
+      const phone = document.getElementById('custPhone').value;
+      const service = document.getElementById('custService').value;
+
+      status.style.color = '#38bdf8';
+      status.innerText = 'রিকোয়েস্ট প্রসেস করা হচ্ছে...';
+
+      setTimeout(() => {
+        const text = encodeURIComponent(`হ্যালো Digital Pulse,\nআমি: ${name}\nমোবাইল: ${phone}\nসার্ভিস: ${service}\nআমি একটি প্রজেক্ট নিয়ে আলোচনা করতে চাই।`);
+        status.style.color = '#4ade80';
+        status.innerText = 'ধন্যবাদ! হোয়াটসঅ্যাপ ওপেন হচ্ছে...';
+        window.open(`https://wa.me/8801568477991?text=${text}`, '_blank');
+      }, 600);
+    }
+  </script>
 </body>
 </html>
